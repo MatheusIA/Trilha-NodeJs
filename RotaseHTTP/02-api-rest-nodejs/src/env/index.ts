@@ -15,10 +15,11 @@ const envSchema = z.object({
 });
 
 // SafeParse, não dispara um erro, caso a validação falhe
-console.log("PORT value from environment:", process.env.PORT);
+
 const _env = envSchema.safeParse(process.env);
 
 if (_env.success === false) {
+  console.log("PORT value from environment:", process.env.PORT);
   console.error("Invalid environment variables !", _env.error.format());
 
   throw new Error("Invalid environment variables.");
