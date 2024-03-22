@@ -2,7 +2,7 @@ import { Either, left, right } from "./either";
 
 function doSomething(shouldSuccess: boolean): Either<string, number> {
   if (shouldSuccess) {
-    return right("sucess");
+    return right(10);
   } else {
     return left("error");
   }

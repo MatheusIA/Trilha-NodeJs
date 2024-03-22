@@ -38,9 +38,12 @@ import { DeleteAnswerCommentUseCase } from "@/domain/forum/application/use-cases
 import { FetchQuestionCommentsController } from "./controllers/fetch-question-comments.controller";
 import { FetchQuestionCommentsUseCase } from "@/domain/forum/application/use-cases/fetch-question-comments";
 import { FetchAnswerCommentsController } from "./controllers/fetch-answer-comments.controller";
+import { UploadAttachmentController } from "./controllers/upload-attachment.controller";
+import { StoraModule } from "../storage/storage.module";
+import { UploadAndCreateAttachmentUseCase } from "@/domain/forum/application/use-cases/upload-and-creat-attachment";
 
 @Module({
-  imports: [DatabaseModule, CryptographyModule],
+  imports: [DatabaseModule, CryptographyModule, StoraModule],
   controllers: [
     CreateAccountController,
     AuthenticateController,
@@ -60,6 +63,7 @@ import { FetchAnswerCommentsController } from "./controllers/fetch-answer-commen
     DeleteAnswerCommentController,
     FetchQuestionCommentsController,
     FetchAnswerCommentsController,
+    UploadAttachmentController,
   ],
   providers: [
     CreateQuestionUseCase,
@@ -80,6 +84,7 @@ import { FetchAnswerCommentsController } from "./controllers/fetch-answer-commen
     DeleteAnswerCommentUseCase,
     FetchQuestionCommentsUseCase,
     FetchAnswerCommentsUseCase,
+    UploadAndCreateAttachmentUseCase,
   ],
 })
 export class HttpModule {}
